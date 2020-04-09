@@ -95,7 +95,7 @@ trait HasTranslations
 
         $translations[$locale] = $value;
 
-        $this->attributes[$key] = $this->asJson($translations);
+        $this->attributes[$key] = $this->asJson($translations, JSON_UNESCAPED_UNICODE);
 
         event(new TranslationHasBeenSet($this, $key, $locale, $oldValue, $value));
 
